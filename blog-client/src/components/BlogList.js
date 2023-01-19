@@ -1,8 +1,8 @@
 import React from "react";
-function BlogList() {
+function BlogList({renderBlogs}) {
     return (
-        <ul className="blog-lsit">
-
+        <ul className="blog-list">
+            {renderBlogs}
         </ul>
     )
 }
