@@ -1,11 +1,12 @@
 import React from "react";
+import Header from "./Header";
+import BlogPage from "./BlogPage";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        Hello World!
-      </header>
+      <Header />
+      <BlogPage />
     </div>
   );
 }
