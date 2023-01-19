@@ -1,0 +1,28 @@
+{
+    "blogPost": [
+        {
+            "id": 1,
+            "title": "Happy First Post",
+            "description": "Today I am writing my very first post on my new created blog.",
+            "date": "06/04/2022"
+        },
+        {
+            "id": 2,
+            "title": "Got A Puppy!",
+            "description": "Got a french bulldog for Christmas! We named him Bruno and I already love him so much.",
+            "date": "12/01/2022"
+        },
+        {
+            "id": 3,
+            "title": "Here Alone",
+            "description": "Since we are relocating to Kansas, my husband had to leave first and get everything ready for the rest of us. I am here staying back for a while with the kids so they wouldn't have to change school in the middle of the school year.",
+            "date": "01/02/2023"
+        },
+        {
+            "id": 4,
+            "title": "Finally Reuniting!",
+            "description": "Been packing up our belongings all week. The kids, Bruno and I are heading to Kansas today.",
+            "date": "05/26/2023"
+        }
+    ]
+}
