@@ -1,5 +1,5 @@
 import React from "react";
-import EditPost from "./EditPost";
+
 
 function Post({post, onPostDelete}) {
 
@@ -12,17 +12,16 @@ function Post({post, onPostDelete}) {
         onPostDelete(id);
     }
 
+    const handleEditClick = () => {
+        console.log(`Edit post ${id}`)
+    }
+
     return (
         <ul>
             <h3>{title}</h3>
             <h5>{date}</h5>
             <p>{description}</p>
             <button onClick={handleEditClick}>EDIT</button> <button onClick={handleDeleteClick}>DELETE</button>
-            <EditPost 
-                id={id}
-                title={title}
-                description={description}
-            />
         </ul>
     )
 }
