@@ -1,4 +1,5 @@
 import React from "react";
+import EditForm from "./EditForm";
 
 
 function Post({post, onPostDelete, onPostUpdate}) {
@@ -36,6 +37,7 @@ function Post({post, onPostDelete, onPostUpdate}) {
             <h5>{date}</h5>
             <p>{description}</p>
             <button onClick={handleEditClick}>EDIT</button> <button onClick={handleDeleteClick}>DELETE</button>
+            <EditForm />
         </ul>
     )
 }
