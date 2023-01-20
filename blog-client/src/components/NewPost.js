@@ -22,6 +22,10 @@ function NewPost({onAddPost}) {
         })
         .then(resp => resp.json())
         .then(newPost => onAddPost(newPost));
+
+        setTitle("");
+        setDate("");
+        setDescription("");
     }
 
     return (
