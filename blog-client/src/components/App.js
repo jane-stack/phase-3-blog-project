@@ -21,13 +21,26 @@ function App() {
     setPosts(updatedPosts);
   }
 
+  const handleUpdatedPost = (updatedPost) => {
+    const updatedPostList = posts.map(post => {
+      if (post.id === updatedPost.id) {
+        return updatedPost;
+      } else {
+        return post;
+      }
+    });
+    setPosts(updatedPostList);
+  }
+
   return (
     <main className="App">
       <Header />
       <PostForm onAddPost={handleAddPost} />
       <BlogList 
         posts={posts} 
-        onPostDelete={handleDeletePost} />
+        onPostDelete={handleDeletePost}
+        OnPostUpdate={handleUpdatedPost}
+      />
     </main>
   );
 }

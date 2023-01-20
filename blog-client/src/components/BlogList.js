@@ -1,7 +1,7 @@
 import React from "react";
 import Post from "./Post";
 
-function BlogList({posts, onPostDelete}) {
+function BlogList({posts, onPostDelete, onPostUpdate}) {
 
     const renderBlogPosts = posts.map(post => {
         return (
@@ -12,6 +12,7 @@ function BlogList({posts, onPostDelete}) {
                 date={post.date}
                 description={post.description}
                 onPostDelete={onPostDelete}
+                onPostUpdate={onPostUpdate}
             />
         )
     })

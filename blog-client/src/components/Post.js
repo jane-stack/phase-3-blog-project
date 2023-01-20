@@ -1,7 +1,7 @@
 import React from "react";
 
 
-function Post({post, onPostDelete}) {
+function Post({post, onPostDelete, onPostUpdate}) {
 
     const {id, title, date, description} = post
 
@@ -12,8 +12,22 @@ function Post({post, onPostDelete}) {
         onPostDelete(id);
     }
 
-    const handleEditClick = () => {
-        console.log(`Edit post ${id}`)
+    function handleEditClick() {
+        const updatedPost = {
+            title: title,
+            date: date,
+            description: description
+        }
+
+        fetch(`http://localhost:6001/blogPost/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(updatedPost),
+        })
+        .then(resp => resp.json())
+        .then( updatedPost => onPostUpdate(updatedPost))
     }
 
     return (
