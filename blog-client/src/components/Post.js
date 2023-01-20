@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import EditForm from "./EditForm";
 
 
 function Post({post, onPostDelete, onPostUpdate}) {
+    const [isEditing, setIsEditing] = useState(false);
 
     const {id, title, date, description} = post
 
@@ -12,24 +13,6 @@ function Post({post, onPostDelete, onPostUpdate}) {
         });
         onPostDelete(id);
     }
-
-    // function handleEditClick() {
-    //     const updatedPost = {
-    //         title: title,
-    //         date: date,
-    //         description: description
-    //     }
-
-    //     fetch(`http://localhost:6001/blogPost/${id}`, {
-    //         method: "PATCH",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //         },
-    //         body: JSON.stringify(updatedPost),
-    //     })
-    //     .then(resp => resp.json())
-    //     .then( updatedPost => onPostUpdate(updatedPost))
-    // }
 
     const handleEditClick = () => console.log(`Edit ${id}`);
 
