@@ -13,23 +13,25 @@ function Post({post, onPostDelete, onPostUpdate}) {
         onPostDelete(id);
     }
 
-    function handleEditClick() {
-        const updatedPost = {
-            title: title,
-            date: date,
-            description: description
-        }
+    // function handleEditClick() {
+    //     const updatedPost = {
+    //         title: title,
+    //         date: date,
+    //         description: description
+    //     }
 
-        fetch(`http://localhost:6001/blogPost/${id}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(updatedPost),
-        })
-        .then(resp => resp.json())
-        .then( updatedPost => onPostUpdate(updatedPost))
-    }
+    //     fetch(`http://localhost:6001/blogPost/${id}`, {
+    //         method: "PATCH",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //         body: JSON.stringify(updatedPost),
+    //     })
+    //     .then(resp => resp.json())
+    //     .then( updatedPost => onPostUpdate(updatedPost))
+    // }
+
+    const handleEditClick = () => console.log(`Edit ${id}`);
 
     return (
         <ul>
@@ -37,7 +39,10 @@ function Post({post, onPostDelete, onPostUpdate}) {
             <h5>{date}</h5>
             <p>{description}</p>
             <button onClick={handleEditClick}>EDIT</button> <button onClick={handleDeleteClick}>DELETE</button>
-            <EditForm />
+            <EditForm
+                post={post}
+                onPostDelete={onPostUpdate}
+            />
         </ul>
     )
 }
