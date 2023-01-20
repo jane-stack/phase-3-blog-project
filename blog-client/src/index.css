@@ -1,21 +1,25 @@
+* {
+  background-color: auto;
+}
+body {
+  background-color: white;
+}
+
+.App {
+  font-size: 14px;
+  font-family: "Helvetica", sans-serif;
+}
+
 .light-mode {
   background-color: white;
   color: black;
+  margin: 5%;
 }
 
 .dark-mode {
 background-color: black;
 color: white;
-}
-
-body {
-  font-size: 14px;
-  font-family: "Helvetica", sans-serif;
-  background-color: rgb(155, 155, 155);
-  height: 1000px;
-  color: var(--main-font-color);
-  background-color: var(--bg-color-1);
-  transition: all 0.5s;
+margin: 5%;
 }
 
 /* Header */

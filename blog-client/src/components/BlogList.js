@@ -1,8 +1,22 @@
 import React from "react";
-function BlogList({renderBlogs}) {
+import BlogPost from "./BlogPost";
+
+function BlogList({list, onPostDelete}) {
+    const renderPost = list.map(post => {
+        return (
+            <BlogPost 
+                key={post.id}
+                title={post.title}
+                date={post.date}
+                description={post.description}
+            />
+        )
+    })
+
     return (
         <ul className="blog-list">
-            {renderBlogs}
+            {renderPost}
+            <BlogPost key={list.id} list={list} onPostDelete={onPostDelete}/>
         </ul>
     )
 }
