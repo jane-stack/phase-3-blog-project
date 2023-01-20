@@ -1,9 +1,14 @@
 import React from "react";
 
-function Post({id, title, date, description}) {
+function Post({post, onPostDelete}) {
+
+    const {id, title, date, description} = post
 
     function handleDeleteClick() {
-        fetch(`http://localhost:6001/blogPost/${id}`)
+        fetch(`http://localhost:6001/blogPost/${id}`, {
+            method: "DELETE",
+        });
+        onPostDelete(id);
     }
 
     return (

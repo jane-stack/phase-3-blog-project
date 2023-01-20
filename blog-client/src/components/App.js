@@ -16,11 +16,18 @@ function App() {
     setPosts([...posts, newPost]);
   }
 
+  const handleDeletePost = (id) => {
+    const updatedPosts = posts.filter(post => post.id !== id);
+    setPosts(updatedPosts);
+  }
+
   return (
     <main className="App">
       <Header />
       <NewPost onAddPost={handleAddPost} />
-      <BlogList posts={posts} />
+      <BlogList 
+        posts={posts} 
+        onPostDelete={handleDeletePost} />
     </main>
   );
 }
