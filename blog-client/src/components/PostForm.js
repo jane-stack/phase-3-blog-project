@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function NewPost({onAddPost}) {
+function PostForm({onAddPost}) {
     const [title, setTitle] = useState("");
     const [date, setDate] = useState("");
     const [description, setDescription] = useState("");
@@ -39,4 +39,4 @@ function NewPost({onAddPost}) {
     )
 }
 
-export default NewPost;
+export default PostForm;

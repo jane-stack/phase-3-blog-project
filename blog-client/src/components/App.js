@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import BlogList from "./BlogList";
-import NewPost from "./NewPost";
+import PostForm from "./PostForm";
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -24,7 +24,7 @@ function App() {
   return (
     <main className="App">
       <Header />
-      <NewPost onAddPost={handleAddPost} />
+      <PostForm onAddPost={handleAddPost} />
       <BlogList 
         posts={posts} 
         onPostDelete={handleDeletePost} />
