@@ -22,7 +22,7 @@ function PostForm({onAddPost, onUpdatePost, selectedPost}) {
             description: description
         }
 
-        fetch("http://localhost:6001/blogPost", {
+        fetch("http://localhost:9292/blogPost", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -45,7 +45,7 @@ function PostForm({onAddPost, onUpdatePost, selectedPost}) {
             description: description
         }
 
-        fetch(`http://localhost:6001/blogPost/${id}`, {
+        fetch(`http://localhost:9292/blogPost/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",

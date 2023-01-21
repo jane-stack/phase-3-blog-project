@@ -8,7 +8,7 @@ function App() {
   const [selectedPost, setSelectedPost] = useState({});
 
   useEffect(() => {
-    fetch("http://localhost:6001/blogPost")
+    fetch("http://localhost:9292/blogPost")
     .then(resp => resp.json())
     .then(posts  => setPosts(posts));
   }, []);
