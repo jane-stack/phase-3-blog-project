@@ -38,8 +38,7 @@ function PostForm({onAddPost, onUpdatePost, selectedPost}) {
         setDescription("");
     }
 
-    function handleEditSubmit(e) {
-        e.preventDefault();
+    function handleEditSubmit() {
         const newPost = {
             title: title,
             date: date,
@@ -63,7 +62,6 @@ function PostForm({onAddPost, onUpdatePost, selectedPost}) {
             <input type="date" name="date" onChange={(e) => setDate(e.target.value)} value={date} />
             <input type="text" name="description" placeholder="Start your post!" onChange={(e) => setDescription(e.target.value)} value={description} />
             <button>POST</button>
-            {/* <EditForm selectedPost={selectedPost} /> */}
         </form>
     )
 }
