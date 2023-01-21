@@ -7,28 +7,16 @@
       "date": "06/04/2022"
     },
     {
-      "id": 2,
       "title": "Got A Puppy!",
-      "description": "Got a french bulldog for Christmas! We named him Bruno and I already love him so much.",
-      "date": "12/01/2022"
-    },
-    {
-      "id": 3,
-      "title": "Here Alone",
-      "description": "Since we are relocating to Kansas, my husband had to leave first and get everything ready for the rest of us. I am here staying back for a while with the kids so they wouldn't have to change school in the middle of the school year.",
-      "date": "01/02/2023"
-    },
-    {
-      "title": "We are Heading Out",
-      "date": "2023-05-26",
-      "description": "Got everything packed and ready to hit the road. So excited to finally have my family together again under the same roof!",
-      "id": 4
-    },
-    {
-      "title": "Landed my Dream Job",
-      "date": "2023-07-01",
-      "description": "I found a job! yah! After all those months of learning and searching, everything is finally coming together. New state, new job, and soon to find a new house!",
+      "date": "12/01/2022",
+      "description": "Got a french bulldog for Christmas! We named him Bruno and I already love him so much. He's such a good boy!!",
       "id": 5
+    },
+    {
+      "title": "Here Alone For Now",
+      "date": "2023-01-02",
+      "description": "Husband left for work and we won't be united again until spring time. It's sad but I am excited for this upcoming adventure.",
+      "id": 6
     }
   ]
 }

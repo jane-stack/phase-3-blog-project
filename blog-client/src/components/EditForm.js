@@ -1,13 +1,20 @@
-import React, { useState } from "react";
-function EditForm({post, onPostUpdate}) {
-    const {id} = post
+import React, { useEffect, useState } from "react";
+function EditForm({onUpdatePost, selectedPost}) {
+    const [id, setPostId] = useState(0);
     const [title, setTitle] = useState("");
     const [date, setDate] = useState("");
     const [description, setDescription] = useState("");
 
-    function handleSubmit(e) {
+    useEffect(() => {
+        setPostId(selectedPost.id)
+        setTitle(selectedPost.title)
+        setDate(selectedPost.date)
+        setDescription(selectedPost.description)
+    }, [selectedPost])
+
+    function handleSubmit() {
         e.preventDefault();
-        const updatePost = {
+        const newPost = {
             title: title,
             date: date,
             description: description
@@ -18,17 +25,23 @@ function EditForm({post, onPostUpdate}) {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(updatePost),
+            body: JSON.stringify(newPost)
         })
         .then(resp => resp.json())
-        .then(updatePost => onPostUpdate(updatePost))
+        .then(updatePost => onUpdatePost(updatePost));
+
+        // refresh input fields after submitting form.
+        setTitle("");
+        setDate("");
+        setDescription("");
     }
 
     return (
-        <form className="post-edit" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <input type="text" name="title" placeholder="Title of Your Post.." onChange={(e) => setTitle(e.target.value)} value={title} />
             <input type="date" name="date" onChange={(e) => setDate(e.target.value)} value={date} />
             <input type="text" name="description" placeholder="Start your post!" onChange={(e) => setDescription(e.target.value)} value={description} />
+            <button>POST</button>
         </form>
     )
 }

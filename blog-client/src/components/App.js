@@ -5,6 +5,7 @@ import PostForm from "./PostForm";
 
 function App() {
   const [posts, setPosts] = useState([]);
+  const [selectedPost, setSelectedPost] = useState({});
 
   useEffect(() => {
     fetch("http://localhost:6001/blogPost")
@@ -22,24 +23,32 @@ function App() {
   }
 
   const handleUpdatedPost = (updatedPost) => {
-    const updatedPostList = posts.map(post => {
+    const updatedPosts = posts.map(post => {
       if (post.id === updatedPost.id) {
         return updatedPost;
       } else {
         return post;
       }
     });
-    setPosts(updatedPostList);
+    setPosts(updatedPosts);
+  }
+
+  const selectPost = (updatedPost) => {
+    setSelectedPost(updatedPost);
   }
 
   return (
     <main className="App">
       <Header />
-      <PostForm onAddPost={handleAddPost} />
+      <PostForm 
+        onAddPost={handleAddPost} 
+        onUpdatePost={handleUpdatedPost} 
+        />
       <BlogList 
         posts={posts} 
         onPostDelete={handleDeletePost}
-        OnPostUpdate={handleUpdatedPost}
+        selectedPost={selectedPost}
+        selectPost={selectPost}
       />
     </main>
   );

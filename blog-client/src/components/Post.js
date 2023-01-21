@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import EditForm from "./EditForm";
 
 
-function Post({post, onPostDelete, onPostUpdate}) {
-    const [isEditing, setIsEditing] = useState(false);
+function Post({post, onPostDelete, selectPost, selectedPost}) {
 
     const {id, title, date, description} = post
 
@@ -14,19 +13,15 @@ function Post({post, onPostDelete, onPostUpdate}) {
         onPostDelete(id);
     }
 
-    const handleEditClick = () => console.log(`Edit ${id}`);
-
     return (
-        <ul>
+        <li>
             <h3>{title}</h3>
             <h5>{date}</h5>
             <p>{description}</p>
-            <button onClick={handleEditClick}>EDIT</button> <button onClick={handleDeleteClick}>DELETE</button>
-            <EditForm
-                post={post}
-                onPostDelete={onPostUpdate}
-            />
-        </ul>
+            <EditForm selectedPost={selectedPost} />
+            <button onClick={() => selectPost(post)}>EDIT</button>
+            <button onClick={handleDeleteClick}>DELETE</button>
+        </li>
     )
 }
 
