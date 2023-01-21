@@ -6,7 +6,7 @@ Welcome to my phase-3 project. In this project I used React to development my fr
 
 To get started, cd into blog-client to get your frontend working. Then run,
 
-npm install
+npm install (to install all the dependencies for this lab)
 
 npm start
 
