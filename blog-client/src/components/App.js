@@ -43,11 +43,11 @@ function App() {
       <PostForm 
         onAddPost={handleAddPost} 
         onUpdatePost={handleUpdatedPost} 
+        selectedPost={selectedPost}
         />
       <BlogList 
         posts={posts} 
         onPostDelete={handleDeletePost}
-        selectedPost={selectedPost}
         selectPost={selectPost}
       />
     </main>
