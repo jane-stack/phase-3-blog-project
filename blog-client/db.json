@@ -1,22 +1,10 @@
 {
   "blogPost": [
     {
-      "id": 1,
-      "title": "Happy First Post",
-      "description": "Today I am writing my very first post on my new created blog.",
-      "date": "06/04/2022"
-    },
-    {
-      "title": "Got A Puppy!",
-      "date": "12/01/2022",
-      "description": "Got a french bulldog for Christmas! We named him Bruno and I already love him so much. He's such a good boy!!",
-      "id": 5
-    },
-    {
-      "title": "Here Alone For Now",
-      "date": "2023-01-02",
-      "description": "Husband left for work and we won't be united again until spring time. It's sad but I am excited for this upcoming adventure.",
-      "id": 6
+      "title": "My Very First Post",
+      "date": "2022-06-04",
+      "description": "Today I started writing this first post on my newly created blog at BlogSpace. I'm pretty thrilled that I was able to create this from scratch! I guess all this studying really made a huge difference.",
+      "id": 1
     }
   ]
 }

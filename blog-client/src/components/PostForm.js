@@ -22,6 +22,11 @@ function PostForm({onAddPost}) {
         })
         .then(resp => resp.json())
         .then(newPost => onAddPost(newPost));
+
+        // refresh input fields after submitting form.
+        setTitle("");
+        setDate("");
+        setDescription("");
     }
 
     return (

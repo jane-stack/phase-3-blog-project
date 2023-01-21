@@ -1,8 +1,7 @@
 import React from "react";
-import EditForm from "./EditForm";
 
 
-function Post({post, onPostDelete, selectPost, selectedPost}) {
+function Post({post, onPostDelete, selectPost}) {
 
     const {id, title, date, description} = post
 
@@ -18,7 +17,6 @@ function Post({post, onPostDelete, selectPost, selectedPost}) {
             <h3>{title}</h3>
             <h5>{date}</h5>
             <p>{description}</p>
-            <EditForm selectedPost={selectedPost} />
             <button onClick={() => selectPost(post)}>EDIT</button>
             <button onClick={handleDeleteClick}>DELETE</button>
         </li>

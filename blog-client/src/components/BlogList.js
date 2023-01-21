@@ -1,5 +1,6 @@
 import React from "react";
 import Post from "./Post";
+import EditForm from "./EditForm";
 
 function BlogList({posts, onPostDelete, selectPost, selectedPost}) {
 
@@ -21,6 +22,7 @@ function BlogList({posts, onPostDelete, selectPost, selectedPost}) {
     return (
         <div className="list">
             <ul>
+                <EditForm selectedPost={selectedPost} />
                 {renderBlogPosts}
             </ul>
         </div>
