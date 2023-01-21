@@ -12,7 +12,7 @@ function EditForm({onUpdatePost, selectedPost}) {
         setDescription(selectedPost.description)
     }, [selectedPost])
 
-    function handleSubmit() {
+    function handleSubmit(e) {
         e.preventDefault();
         const newPost = {
             title: title,
