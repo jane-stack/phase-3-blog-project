@@ -5,6 +5,36 @@
       "date": "2022-06-04",
       "description": "Today I started writing this first post on my newly created blog at BlogSpace. I'm pretty thrilled that I was able to create this from scratch! I guess all this studying really made a huge difference.",
       "id": 1
+    },
+    {
+      "title": "Got a Puppy",
+      "date": "2022-11-16",
+      "description": "I received an early Christmas gift from my little brother today. A french bulldog puppy whom is named Bruno! Bruno was a sentimental valued gift because he was a thoughtful gift from my brother and therefore more special than just a pet. Our family all adore Bruno so much and we are so grateful for him.",
+      "id": 2
+    },
+    {
+      "title": "New Adventure Awaits",
+      "date": "2023-01-02",
+      "description": "Husband left for Kansas this morning and although the next few months will be extremely difficult having to be on my own with four kids, I am comforted with the thought that soon everything will be splendid. He left first to start work and get everything prepared for the kids and I. We've decided to let the kids finish their school year in Colorado then head to Kansas when school ends this year. The plan is to hit the road end of May to early June.",
+      "id": 3
+    },
+    {
+      "title": "It's Been Tough So Far",
+      "date": "2023-01-21",
+      "description": "The last few weeks has been hard. Alone with all the kids and their daily schedules while trying to catch up in class. I'm getting by though! Nearly caught up and at least the kids are making it to school and eating. ",
+      "id": 4
+    },
+    {
+      "title": "Hitting the Road",
+      "date": "2023-05-26",
+      "description": "The day has come and I've been prepared for weeks! Kids, Bruno, and I are finally hitting the road today. This is so exciting!",
+      "id": 5
+    },
+    {
+      "title": "Settling In and Find Work",
+      "date": "2023-08-01",
+      "description": "We are pretty much settled in. Spent the last few months exploring our new State. All that's left to do now is find work in my field of studies that I've worked extremely hard to complete. Wish me luck!",
+      "id": 6
     }
   ]
 }
