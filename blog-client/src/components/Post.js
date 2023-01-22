@@ -6,7 +6,7 @@ function Post({post, onPostDelete, selectPost}) {
     const {id, title, date, description} = post
 
     function handleDeleteClick() {
-        fetch(`http://localhost:9292/blogPost/${id}`, {
+        fetch(`http://localhost:9292/posts/${id}`, {
             method: "DELETE",
         });
         onPostDelete(id);
