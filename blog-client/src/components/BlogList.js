@@ -1,7 +1,12 @@
 import React from "react";
 import Post from "./Post";
+import PostForm from "./PostForm";
 
-function BlogList({posts, onPostDelete, selectPost, selectedPost}) {
+function BlogList({
+    posts, 
+    onPostDelete, 
+    onAddPost,
+    onUpdatePost }) {
 
     const renderBlogPosts = posts.map(post => {
         return (
@@ -12,14 +17,17 @@ function BlogList({posts, onPostDelete, selectPost, selectedPost}) {
                 date={post.date}
                 description={post.description}
                 onPostDelete={onPostDelete}
-                selectPost={selectPost}
-                selectedPost={selectedPost}
+                onUpdatePost={onUpdatePost}
             />
         )
     })
 
     return (
         <div className="list">
+            <PostForm
+                onAddPost={onAddPost} 
+                onUpdatePost={onUpdatePost} 
+            />
             <ul>
                 {renderBlogPosts}
             </ul>

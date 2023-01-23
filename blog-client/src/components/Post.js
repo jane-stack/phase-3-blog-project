@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import EditPost from "./EditPost";
 
 
-function Post({post, onPostDelete, selectPost}) {
+function Post({post, onPostDelete, onUpdatePost}) {
 
-    const {id, title, date, description} = post
+    const [isEditing, setIsEditing] = useState(false);
+    const {id, title, date, description} = post;
 
     function handleDeleteClick() {
         fetch(`http://localhost:9292/posts/${id}`, {
@@ -12,13 +14,31 @@ function Post({post, onPostDelete, selectPost}) {
         onPostDelete(id);
     }
 
+    function handleUpdatePost(updatedPost) {
+        setIsEditing(false);
+        onUpdatePost(updatedPost)
+    }
+
     return (
         <li>
-            <h3>{title}</h3>
-            <h5>{date}</h5>
-            <p>{description}</p>
-            <button onClick={() => selectPost(post)}>EDIT</button>
-            <button onClick={handleDeleteClick}>DELETE</button>
+            <span className="title">{title}</span>
+            <span className="description">{description}</span>
+            {isEditing ? (
+                <EditPost
+                    id={id}
+                    title={title}
+                    description={description}
+                    onUpdatePost={handleUpdatePost}
+                />
+            ) : (
+                <>
+                <p>{description}</p>
+                <div className="exit-action">
+                    <button onClick={() => setIsEditing(isEditing => !isEditing)}>EDIT</button>
+                    <button onClick={handleDeleteClick}>DELETE</button>
+                </div>
+                </>
+            )}
         </li>
     )
 }

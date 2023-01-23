@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import BlogList from "./BlogList";
-import PostForm from "./PostForm";
 
 function App() {
   const [posts, setPosts] = useState([]);
-  const [selectedPost, setSelectedPost] = useState({});
 
   useEffect(() => {
     fetch("http://localhost:9292/posts")
@@ -33,22 +31,14 @@ function App() {
     setPosts(updatedPosts);
   }
 
-  const selectPost = (updatedPost) => {
-    setSelectedPost(updatedPost);
-  }
-
   return (
     <main className="App">
       <Header />
-      <PostForm 
-        onAddPost={handleAddPost} 
-        onUpdatePost={handleUpdatedPost} 
-        selectedPost={selectedPost}
-        />
       <BlogList 
         posts={posts} 
         onPostDelete={handleDeletePost}
-        selectPost={selectPost}
+        onAddPost={handleAddPost} 
+        onUpdatePost={handleUpdatedPost}
       />
     </main>
   );
