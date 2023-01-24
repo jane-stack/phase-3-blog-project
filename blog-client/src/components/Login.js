@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-function Login({ setIsLoggedIn }) {
+function Login({ setIsLoggedIn, setUser }) {
   const history = useHistory();
   const [formData, setFormData] = useState({
     username: "",
@@ -18,6 +18,18 @@ function Login({ setIsLoggedIn }) {
   function handleSubmit(e) {
     e.preventDefault();
     setIsLoggedIn(true);
+
+    fetch("http://localhost:9292/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: formData.username
+      })
+    })
+    .then(resp => resp.json())
+    .then(userData => setUser(userData) )
     history.push("/");
   }
 

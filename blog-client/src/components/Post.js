@@ -25,6 +25,7 @@ function Post({post, onPostDelete, onUpdatePost, select, onSelectClick}) {
     return (
         <ul>
             <h1>{title}</h1>
+            <h4>{post.user.username}</h4>
             <h5>{date}</h5>
             <p>{description}</p>
             <button className="edit-btn" onClick={showEditForm}>✏️</button>
