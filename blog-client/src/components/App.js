@@ -6,6 +6,7 @@ import Login from "./Login";
 
 function App() {
   const [posts, setPosts] = useState([]);
+  const [user, setUser] = useState([]);
   const [select, setSelect] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -13,6 +14,12 @@ function App() {
     fetch("http://localhost:9292/posts")
     .then(resp => resp.json())
     .then(posts  => setPosts(posts));
+  }, []);
+
+  useEffect(() => {
+    fetch("http://localhost:9292/users")
+    .then(resp => resp.json())
+    .then(user => setUser(user));
   }, []);
 
   const handleAddPost = (newPost) => {
@@ -54,6 +61,7 @@ function App() {
             select={select}
             onSelectClick={handleEditClick}
             isLoggedIn={isLoggedIn}
+            user={user}
           />
         </Route>
       </Switch>

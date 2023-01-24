@@ -23,8 +23,8 @@ function Navbar({setIsLoggedIn}) {
         <div>
             <h1>BlogSpace</h1>
             <NavLink to="/" exact style={linkStyle}>BLOG</NavLink>
-            <NavLink to="/login" exact style={linkStyle}>LOGIN</NavLink>
-            <button onClick={handleLogout} exact style={linkStyle}>GOODBYE</button>
+            <NavLink to="/login" exact style={linkStyle}>LOG IN</NavLink>
+            <button onClick={handleLogout} exact style={linkStyle}>LOG OUT</button>
         </div>
     )
 }

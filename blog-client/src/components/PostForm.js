@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 
-function PostForm({onAddPost}) {
+function PostForm({onAddPost, user}) {
+    // const [userId, setUserId] = useState(0);
     const [title, setTitle] = useState("");
     const [date, setDate] = useState("");
     const [description, setDescription] = useState("");
 
+    // useEffect(() => {
+    //     setUserId(user.id);
+    // }, [user]);
+
     function handleSubmit(e) {
         e.preventDefault();
         const newPost = {
+            // id: userId,
             title: title,
             date: date,
             description: description

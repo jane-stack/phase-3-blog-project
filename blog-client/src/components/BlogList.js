@@ -10,6 +10,7 @@ function BlogList({
     onAddPost,
     onUpdatePost,
     select,
+    user,
     onSelectClick }) {
         if(!isLoggedIn) return <Redirect to="/login"/>;
 
@@ -35,6 +36,7 @@ function BlogList({
                 onAddPost={onAddPost} 
                 onUpdatePost={onUpdatePost} 
                 select={select}
+                user={user}
             />
             <ul>
                 {renderBlogPosts}
