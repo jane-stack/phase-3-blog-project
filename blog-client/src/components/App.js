@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Header from "./Header";
+import { Route, Switch } from "react-router-dom";
 import BlogList from "./BlogList";
+import Navbar from "./Navbar";
+import Login from "./Login";
 
 function App() {
   const [posts, setPosts] = useState([]);
+  const [select, setSelect] = useState({});
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     fetch("http://localhost:9292/posts")
@@ -31,17 +35,31 @@ function App() {
     setPosts(updatedPosts);
   }
 
+  // Allow us to know which post had been clicked
+  const handleEditClick = (selectedPost) => {
+    setSelect(selectedPost);
+  }
+
   return (
-    <main className="App">
-      <Header />
-      <BlogList 
-        posts={posts} 
-        onPostDelete={handleDeletePost}
-        onAddPost={handleAddPost} 
-        onUpdatePost={handleUpdatedPost}
-      />
-    </main>
+    <div>
+      <Navbar setIsLoggedIn={setIsLoggedIn}/>
+      <Switch>
+        <Route exect path="/login"><Login setIsLoggedIn={setIsLoggedIn} /></Route>
+        <Route exect path="/">
+          <BlogList 
+            posts={posts} 
+            onPostDelete={handleDeletePost}
+            onAddPost={handleAddPost} 
+            onUpdatePost={handleUpdatedPost}
+            select={select}
+            onSelectClick={handleEditClick}
+            isLoggedIn={isLoggedIn}
+          />
+        </Route>
+      </Switch>
+    </div>
   );
 }
 
 export default App;
+

@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import EditPost from "./EditPost";
 
 
-function Post({post, onPostDelete, onUpdatePost}) {
+function Post({post, onPostDelete, onUpdatePost, select, onSelectClick}) {
 
     const [isEditing, setIsEditing] = useState(false);
     const {id, title, date, description} = post;
+    const showEditForm = () => setIsEditing(isEditing => !isEditing);
 
     function handleDeleteClick() {
         fetch(`http://localhost:9292/posts/${id}`, {
@@ -14,32 +15,23 @@ function Post({post, onPostDelete, onUpdatePost}) {
         onPostDelete(id);
     }
 
-    function handleUpdatePost(updatedPost) {
-        setIsEditing(false);
-        onUpdatePost(updatedPost)
+    const handleEditClick = () => {
+        onSelectClick(post);
+        return (
+            <EditPost select={select} onUpdatePost={onUpdatePost}/>
+        )
     }
 
     return (
-        <li>
-            <span className="title">{title}</span>
-            <span className="description">{description}</span>
-            {isEditing ? (
-                <EditPost
-                    id={id}
-                    title={title}
-                    description={description}
-                    onUpdatePost={handleUpdatePost}
-                />
-            ) : (
-                <>
-                <p>{description}</p>
-                <div className="exit-action">
-                    <button onClick={() => setIsEditing(isEditing => !isEditing)}>EDIT</button>
-                    <button onClick={handleDeleteClick}>DELETE</button>
-                </div>
-                </>
-            )}
-        </li>
+        <ul>
+            <h1>{title}</h1>
+            <h5>{date}</h5>
+            <p>{description}</p>
+            <button className="edit-btn" onClick={showEditForm}>✏️</button>
+            <button className="delete-btn" onClick={handleDeleteClick}>🗑</button>
+            {isEditing && handleEditClick()}
+
+        </ul>
     )
 }
 

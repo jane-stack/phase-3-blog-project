@@ -1,12 +1,21 @@
-import React, { useState } from "react";
-function EditPost({id, title, description, onUpdatePost}) {
-    const [postBody, setPostBody] = useState("");
+import React, { useEffect, useState } from "react";
+function EditPost({onUpdatePost, select}) {
+    const [id, setId] = useState(0);
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("");
+
+    useEffect(() => {
+        setId(select.id);
+        setTitle(select.title);
+        setDescription(select.description);
+    }, [select]);
 
     function handleEditSubmit(e) {
         e.preventDefault();
         const editedPost = {
+            id: id,
             title: title,
-            description: postBody
+            description: description,
         }
 
         fetch(`http://localhost:9292/posts/${id}`, {
@@ -17,20 +26,19 @@ function EditPost({id, title, description, onUpdatePost}) {
             body: JSON.stringify(editedPost)
         })
         .then(resp => resp.json())
-        .then(updatePost => onUpdatePost(updatePost));
+        .then(onUpdatePost(editedPost));
+
+        // refresh input fields after submitting form.
+        setTitle("");
+        setDescription("");
     }
 
     return (
-        <form className="edit-post" onSubmit={handleEditSubmit}>
-            <input
-                type="text" 
-                name="description" 
-                autoComplete="off" 
-                value={postBody} 
-                onChange={(e) => setPostBody(e.target.value)}
-            />
-            <input type="submit" value="save"/>
-
+        <form onSubmit={handleEditSubmit}>
+            <p>Edit as you please...</p>
+            <input type="text" name="title" placeholder="Title of Your Post.." onChange={(e) => setTitle(e.target.value)} value={title} />
+            <input type="text" name="description" placeholder="Start your post!" onChange={(e) => setDescription(e.target.value)} value={description} />
+            <button type="submit" className="contact-btn">DONE EDITING</button>
         </form>
     )
 }

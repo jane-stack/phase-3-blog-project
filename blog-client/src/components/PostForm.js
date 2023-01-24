@@ -30,11 +30,12 @@ function PostForm({onAddPost}) {
     }
 
     return (
-        <form className="edit-post" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
+            <p>Hello there! Ready to create your blog post?</p>
             <input type="text" name="title" placeholder="Title of Your Post.." onChange={(e) => setTitle(e.target.value)} value={title} />
             <input type="date" name="date" onChange={(e) => setDate(e.target.value)} value={date} />
             <input type="text" name="description" placeholder="Start your post!" onChange={(e) => setDescription(e.target.value)} value={description} />
-            <button>POST</button>
+            <button type="submit" className="contact-btn">POST IT NOW</button>
         </form>
     )
 }
